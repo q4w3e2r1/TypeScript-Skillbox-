@@ -1,0 +1,25 @@
+{
+  "name": "test-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/cleave.js": "^1.4.12",
+    "@types/jest": "^29.5.12",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "card-validator": "^9.1.0",
+    "cleave.js": "^1.6.0",
+    "email-validator": "^2.0.4",
+    "redom": "^4.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(rgba(0,0,0,0.4), transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.4), transparent 1px );
+    background-size: 30px 30px;
+  
+    row-gap: 20px;
+}
+
+input{
+    height: 40px;
+    width: 250px;
+}
+
