@@ -1,0 +1,19 @@
+{
+  "name": "ts--",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start":"concurrently \"npm run server\" \"npm run dev\"",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "server": "json-server -w server/db.json -p 3001"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "json-server": "^1.0.0-alpha.23",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}
