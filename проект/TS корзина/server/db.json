@@ -87,6 +87,54 @@
         "image": "https://i.artfile.ru/3008x1996_1047596_[www.ArtFile.ru].jpg",
         "description": "Expertly rendered by Carl Hansen & Søn, the lounge",
         "category":"fish"
+    },
+    {
+        "id": 12,
+        "name":"Стейк из лосося",
+        "price": 250,
+        "image": "https://i.artfile.ru/3008x1996_1047596_[www.ArtFile.ru].jpg",
+        "description": "Expertly rendered by Carl Hansen & Søn, the lounge",
+        "category":"fish"
+    },
+    {
+        "id": 13,
+        "name":"Стейк из лосося",
+        "price": 250,
+        "image": "https://i.artfile.ru/3008x1996_1047596_[www.ArtFile.ru].jpg",
+        "description": "Expertly rendered by Carl Hansen & Søn, the lounge",
+        "category":"fish"
+    },
+    {
+        "id": 14,
+        "name":"Стейк из лосося",
+        "price": 250,
+        "image": "https://i.artfile.ru/3008x1996_1047596_[www.ArtFile.ru].jpg",
+        "description": "Expertly rendered by Carl Hansen & Søn, the lounge",
+        "category":"fish"
+    },
+    {
+        "id": 15,
+        "name":"Стейк из лосося",
+        "price": 250,
+        "image": "https://i.artfile.ru/3008x1996_1047596_[www.ArtFile.ru].jpg",
+        "description": "Expertly rendered by Carl Hansen & Søn, the lounge",
+        "category":"fish"
+    },
+    {
+        "id": 16,
+        "name":"Стейк из лосося",
+        "price": 250,
+        "image": "https://i.artfile.ru/3008x1996_1047596_[www.ArtFile.ru].jpg",
+        "description": "Expertly rendered by Carl Hansen & Søn, the lounge",
+        "category":"fish"
+    },
+    {
+        "id": 17,
+        "name":"Стейк из лосося",
+        "price": 250,
+        "image": "https://i.artfile.ru/3008x1996_1047596_[www.ArtFile.ru].jpg",
+        "description": "Expertly rendered by Carl Hansen & Søn, the lounge",
+        "category":"fish"
     }
     ]
 }    

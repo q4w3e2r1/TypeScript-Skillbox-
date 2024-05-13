@@ -1,28 +1,4 @@
 
-
-
-// class Products{
-//    #product:[]= null;
-
-//     get(){
-//         if product == nyll{
-//             async   fetchProducts(()=>{
-//                 await
-//                 this.#product = result
-//             });
-//         }
-
-//         return this.#product
-
-
-//     }
-
-//     getByCatageroy(){
-//         this.get().filter(product => product.category == category)
-//     }
-
-// }
-
 export class Products {
   #product: { id: string, name: string, image: string, price: number, description:string, category:string  }[] | null = null;
 

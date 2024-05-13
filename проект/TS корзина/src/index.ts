@@ -37,7 +37,7 @@ const initApp = (category:string) => {
       }
 
       fetchProducts().then((data) => {
-        console.log(data);
+        //console.log(data);
         data.forEach((product) => {
           const newProduct = document.createElement('div');
           newProduct.classList.add('item');
@@ -56,7 +56,7 @@ const initApp = (category:string) => {
               `;
           listProduct.appendChild(newProduct);
         });
-
+        
         const loader = document.querySelector('.loader-container')!;
         loader.classList.add('remove'); 
       });
@@ -87,6 +87,7 @@ const setCategory = (curCategory:string) => {
             }
         } )
     });
+    
 }
 
 

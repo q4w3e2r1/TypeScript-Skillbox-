@@ -1,5 +1,4 @@
 import cart from './cart.ts';
-import products from '../products/products.ts';
 import { Products } from '../server/products1.ts';
 
 const app = document.getElementById('app')!;
@@ -26,9 +25,6 @@ const initApp = () => {
   const idProduct = Number(
     new URLSearchParams(window.location.search).get('id')!
   );
-
-  const info = products.find((value) => value.id == idProduct);
-  console.log(info);
 
   async function fetchProduct() {
     const products1 = new Products();
@@ -66,7 +62,7 @@ const initApp = () => {
       return product;
     })
     .then((product) => {
-      console.log(product);
+      //console.log(product);
       //similar products
 
       const listProduct: HTMLElement = document.querySelector('.listProduct')!;
