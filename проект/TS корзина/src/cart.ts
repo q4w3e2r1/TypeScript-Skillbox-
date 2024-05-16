@@ -17,22 +17,138 @@ const cart = () => {
 
  // обработка состяния объекта перед действием в корзине
     const setProductInCart = (idProduct:number, quantity:number, position:number) => {
-        
+        let action = 0
         if (quantity > 0) {
             if (position < 0) {
                 cart.push({
                     product_id: idProduct,
                     quantity: quantity
-                });
+                });        
             } else {
+                action = cart[position].quantity > quantity ? -1 : 1;
                 cart[position].quantity = quantity;
             }
         }else{
             cart.splice(position, 1);
         }
         localStorage.setItem('cart', JSON.stringify(cart));
-        refreshCartHTML();
+        
+        refreshProductCartHTML(idProduct, quantity, action)
+        //refreshCartHTML();
     }
+
+    const refreshProductCartHTML = (id:number, quantity:number, action:number) =>{
+        // не меняется цена на кнопке
+        // не работает удаление
+        const listHTML = document.querySelector('.listCart')!;
+        const buylistHTML = document.querySelector('.buyCart')!;
+        const totalHTML: HTMLElement = document.querySelector('.icon-cart span')!;
+        
+        if(quantity == 1 && action == 0){
+            totalHTML.textContent! = `${+totalHTML.textContent! + 1}`
+            async function fetchProduct() {
+                const products = new Products();
+                const product = await products.findProductByIdAll(id);
+                
+                return product;
+              }
+            
+            fetchProduct().then((product)=>{
+                if(product == null){
+                    throw new Error('Product not found');
+                }
+
+                const newItem = document.createElement('div');
+                    newItem.classList.add('item');
+                    newItem.setAttribute('data-id', product.id)
+
+                    newItem.innerHTML = `
+                    <div class="img">
+                        <img src= "${product.image}" />
+                    </div>
+                    <div class="name">${product.name}</div>
+                    <div class="totalPrice">$${product.price}</div>
+                    <div class="quantity">
+                        <span class="minus" data-id="${product.id}">-</span>
+                        <span class="totalquantity">${quantity}</span>
+                        <span class="plus" data-id="${product.id}">+</span>
+                    </div>
+                    `
+                    listHTML.appendChild(newItem);
+
+                    const totalPrice = Number(checkOutBtn.textContent!.replace('$', '')) + product.price
+                    checkOutBtn.textContent = `$${totalPrice}`
+
+                    const newBuyItem = document.createElement('div');
+                    newBuyItem.classList.add('item');
+                    newBuyItem.setAttribute('data-id', product.id)
+
+
+                    newBuyItem.innerHTML = `
+                    <div class="img">
+                        <img src= "${product.image}" />
+                    </div>
+                    <div class="name">${product.name}</div>
+                    <div class="description">${product.description}</div>
+                    <div class="totalPrice">$${product.price}</div>
+                    <div class="quantity">
+                        <span class="minus" data-id="${product.id}">-</span>
+                        <span class="totalquantity">${quantity}</span>
+                        <span class="plus" data-id="${product.id}">+</span>
+                    </div>
+                    `
+
+                    buylistHTML.appendChild(newBuyItem)
+                
+            })
+            
+
+        }
+
+        else if(quantity >= 1){
+            const item = listHTML.querySelector(`[data-id="${id}"]`)!;
+            const buyItem = buylistHTML.querySelector(`[data-id="${id}"]`)!;
+            
+            let price = item?.querySelector('.totalPrice')!;
+            let productPrice:number = 0
+            let newPrice:number = 0
+            let totalPrice:number = 0
+            if(action == 1){
+                productPrice = Number(price.textContent!.replace('$', '')) / (quantity -1)
+                newPrice = productPrice * quantity
+                totalPrice = Number(checkOutBtn.textContent!.replace('$', '')) + (productPrice)
+                totalHTML.textContent! = `${+totalHTML.textContent! + 1}` 
+            }
+            else{    
+                productPrice = Number(price.textContent!.replace('$', '')) / (quantity +1)
+                newPrice = productPrice * quantity
+                totalPrice = Number(checkOutBtn.textContent!.replace('$', '')) + (productPrice * -1)
+                totalHTML.textContent! = `${+totalHTML.textContent! - 1}` 
+            }
+            
+            const productQuantity = item?.querySelector('.totalquantity')!;
+            checkOutBtn.textContent = `$${totalPrice}` // цена на кнопке
+            productQuantity.textContent = `${quantity}` // кол-во товара на корзине
+            price.textContent = `$${newPrice}` // общая цена за n товара
+            buyItem.querySelector('.totalquantity')!.textContent = `${quantity}`
+            buyItem.querySelector('.totalPrice')!.textContent =  `$${newPrice}`
+        }
+        else if (quantity <= 0){
+            const item = listHTML.querySelector(`[data-id="${id}"]`)!;
+            const buyItem = buylistHTML.querySelector(`[data-id="${id}"]`)!;
+
+            let price = item?.querySelector('.totalPrice')!;
+            item.remove()
+            buyItem.remove()
+            totalHTML.textContent! = `${+totalHTML.textContent! - 1}` // общее кол-во товара
+            const productPrice = Number(price.textContent!.replace('$', '')) / (quantity +1)
+            const totalPrice = Number(checkOutBtn.textContent!.replace('$', '')) + (productPrice * -1)
+            checkOutBtn.textContent = `$${totalPrice}` //общая цена всех товаров
+
+        }
+
+    }
+
 // добавление товара в корзину
     const refreshCartHTML = () => {
         const listHTML = document.querySelector('.listCart')!;
@@ -47,15 +163,15 @@ const cart = () => {
             totalHTML.innerText = `${totalQuantity}`;
             checkOutBtn.innerText = `$${totalPrice}`;
         }
-
+        
         cart.forEach(item => {
 
             totalQuantity += item.quantity;
 
 
             async function fetchProduct() {
-                const products1 = new Products();
-                const product = await products1.findProductByIdAll(item.product_id);
+                const products = new Products();
+                const product = await products.findProductByIdAll(item.product_id);
                 
                 return product;
               }
@@ -72,16 +188,18 @@ const cart = () => {
                     
                     const newItem = document.createElement('div');
                     newItem.classList.add('item');
+                    newItem.setAttribute('data-id', product.id)
+                    
 
                     newItem.innerHTML = `
                     <div class="img">
                         <img src= "${product.image}" />
                     </div>
                     <div class="name">${product.name}</div>
-                    <div class"totalPrice">$${product.price * item.quantity}</div>
+                    <div class="totalPrice">$${product.price * item.quantity}</div>
                     <div class="quantity">
                         <span class="minus" data-id="${product.id}">-</span>
-                        <span>${item.quantity}</span>
+                        <span class="totalquantity">${item.quantity}</span>
                         <span class="plus" data-id="${product.id}">+</span>
                     </div>
                     `
@@ -89,6 +207,7 @@ const cart = () => {
 
                     const newBuyItem = document.createElement('div');
                     newBuyItem.classList.add('item');
+                    newBuyItem.setAttribute('data-id', product.id)
 
                     newBuyItem.innerHTML = `
                     <div class="img">
@@ -96,10 +215,10 @@ const cart = () => {
                     </div>
                     <div class="name">${product.name}</div>
                     <div class="description">${product.description}</div>
-                    <div class"totalPrice">$${product.price * item.quantity}</div>
+                    <div class="totalPrice">$${product.price * item.quantity}</div>
                     <div class="quantity">
                         <span class="minus" data-id="${product.id}">-</span>
-                        <span>${item.quantity}</span>
+                        <span class="totalquantity">${item.quantity}</span>
                         <span class="plus" data-id="${product.id}">+</span>
                     </div>
                     `
