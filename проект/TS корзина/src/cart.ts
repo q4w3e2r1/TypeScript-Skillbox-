@@ -3,7 +3,8 @@ import { Products } from '../server/products1.ts';
 const cart = () => {
     const iconCart = document.querySelector('.icon-cart')!;
     const closeBtn = document.querySelector('.cartTab .close')!;
-    const checkOutBtn:HTMLElement = document.querySelector('.cartTab .checkOut')!;
+    const totalPriceCart:HTMLElement = document.querySelector('.cartTab .cartPrice')!;
+    const buyCartPrice = document.querySelector('.buyCart-Info .buyCartPrice')!;
     const body = document.querySelector('body')!;
     let cart:[{product_id:number, quantity:number}];// товары в корзине
 
@@ -38,12 +39,10 @@ const cart = () => {
     }
 
     const refreshProductCartHTML = (id:number, quantity:number, action:number) =>{
-        // не меняется цена на кнопке
-        // не работает удаление
         const listHTML = document.querySelector('.listCart')!;
         const buylistHTML = document.querySelector('.buyCart')!;
         const totalHTML: HTMLElement = document.querySelector('.icon-cart span')!;
-        
+
         if(quantity == 1 && action == 0){
             totalHTML.textContent! = `${+totalHTML.textContent! + 1}`
             async function fetchProduct() {
@@ -76,8 +75,8 @@ const cart = () => {
                     `
                     listHTML.appendChild(newItem);
 
-                    const totalPrice = Number(checkOutBtn.textContent!.replace('$', '')) + product.price
-                    checkOutBtn.textContent = `$${totalPrice}`
+                    const totalPrice = Number(totalPriceCart.textContent!.replace('$', '')) + product.price
+                    totalPriceCart.textContent = `$${totalPrice}`
 
                     const newBuyItem = document.createElement('div');
                     newBuyItem.classList.add('item');
@@ -116,18 +115,18 @@ const cart = () => {
             if(action == 1){
                 productPrice = Number(price.textContent!.replace('$', '')) / (quantity -1)
                 newPrice = productPrice * quantity
-                totalPrice = Number(checkOutBtn.textContent!.replace('$', '')) + (productPrice)
+                totalPrice = Number(totalPriceCart.textContent!.replace('$', '')) + (productPrice)
                 totalHTML.textContent! = `${+totalHTML.textContent! + 1}` 
             }
             else{    
                 productPrice = Number(price.textContent!.replace('$', '')) / (quantity +1)
                 newPrice = productPrice * quantity
-                totalPrice = Number(checkOutBtn.textContent!.replace('$', '')) + (productPrice * -1)
+                totalPrice = Number(totalPriceCart.textContent!.replace('$', '')) + (productPrice * -1)
                 totalHTML.textContent! = `${+totalHTML.textContent! - 1}` 
             }
             
             const productQuantity = item?.querySelector('.totalquantity')!;
-            checkOutBtn.textContent = `$${totalPrice}` // цена на кнопке
+            totalPriceCart.textContent = `$${totalPrice}` // цена на кнопке
             productQuantity.textContent = `${quantity}` // кол-во товара на корзине
             price.textContent = `$${newPrice}` // общая цена за n товара
             buyItem.querySelector('.totalquantity')!.textContent = `${quantity}`
@@ -142,10 +141,12 @@ const cart = () => {
             buyItem.remove()
             totalHTML.textContent! = `${+totalHTML.textContent! - 1}` // общее кол-во товара
             const productPrice = Number(price.textContent!.replace('$', '')) / (quantity +1)
-            const totalPrice = Number(checkOutBtn.textContent!.replace('$', '')) + (productPrice * -1)
-            checkOutBtn.textContent = `$${totalPrice}` //общая цена всех товаров
+            const totalPrice = Number(totalPriceCart.textContent!.replace('$', '')) + (productPrice * -1)
+            totalPriceCart.textContent = `$${totalPrice}` //общая цена всех товаров
 
         }
+        
+        buyCartPrice.textContent = totalPriceCart.textContent
 
     }
 
@@ -159,11 +160,6 @@ const cart = () => {
         listHTML.innerHTML = '';
         buylistHTML.innerHTML = '';
 
-        if(cart.length <= 0){
-            totalHTML.innerText = `${totalQuantity}`;
-            checkOutBtn.innerText = `$${totalPrice}`;
-        }
-        
         cart.forEach(item => {
 
             totalQuantity += item.quantity;
@@ -217,21 +213,20 @@ const cart = () => {
                     <div class="description">${product.description}</div>
                     <div class="totalPrice">$${product.price * item.quantity}</div>
                     <div class="quantity">
-                        <span class="minus" data-id="${product.id}">-</span>
+                        <span class="minus" data-id="${product.id}"> -</span>
                         <span class="totalquantity">${item.quantity}</span>
-                        <span class="plus" data-id="${product.id}">+</span>
+                        <span class="plus" data-id="${product.id}"> +</span>
                     </div>
                     `
 
                     buylistHTML.appendChild(newBuyItem)
                     totalHTML.innerText = `${totalQuantity}`;
-                    checkOutBtn.innerText = `$${totalPrice}`;
-                    
+                    totalPriceCart.innerText = `$${totalPrice}`;
+                    buyCartPrice.textContent = totalPriceCart.textContent
         
                 })
                 })
               
-
     };
 
     //event click
@@ -269,7 +264,7 @@ const cart = () => {
     const modal = document.querySelector(".modal") as HTMLDivElement;
 
     openModalBtn.addEventListener("click", () => {
-        if(openModalBtn.textContent != '$0')
+        if(totalPriceCart.textContent != '$0')
             modal.style.display = "flex";
         
         

@@ -5,7 +5,7 @@
         "name":"Greek Salad (Horiatiki Salata)",
         "price": 150,
         "image": "https://img.spoonacular.com/recipes/1031039-556x370.jpg",
-        "description": "Expertly rendered by Carl Hansen & Søn, the lounge ",
+        "description": "Expertly rendered by Carl Hansen & Søn, the lounge Expertly rendered by Carl Hansen & Søn, the lounge Expertly rendered by Carl Hansen & Søn, the lounge Expertly rendered by Carl Hansen & Søn, the lounge ",
         "category":"salad"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
         "id": 5,
-        "name":"Салат из спаржи с артишоками и брезаолой",
+        "name":"Салат из спаржи с артишоками",
         "price": 250,
         "image": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663604440_5-mykaleidoscope-ru-p-banketnie-blyuda-oboi-6.jpg",
         "description": "Expertly rendered by Carl Hansen & Søn, the lounge ",
@@ -66,7 +66,7 @@
     },
     {
         "id": 9,
-        "name":"Рыбные ломтики с овощами и соусом из манго",
+        "name":"Рыбные ломтики с овощами",
         "price": 250,
         "image": "http://s1.1zoom.ru/big3/224/Fish_Food_Lemons_Vegetables_White_background_Plate_577924_4200x2800.jpg",
         "description": "Expertly rendered by Carl Hansen & Søn, the lounge ",

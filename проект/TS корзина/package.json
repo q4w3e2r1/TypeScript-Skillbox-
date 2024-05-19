@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start":"concurrently \"npm run server\" \"npm run dev\"",
-    "dev": "vite",
+    "dev":"concurrently \"npm run server\" \"npm run start\"",
+    "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "server": "json-server -w server/db.json -p 3001"

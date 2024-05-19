@@ -21,7 +21,6 @@ svg{
 
 .loader-container.remove{
     display: none;
-    display: none;
 }
 
 .loader {
@@ -109,6 +108,11 @@ header{
     font-size: 36px;
 }
 
+.similar{
+    margin-top: 20px;
+}
+
+
 .cartTab{
     width: 400px;
     max-width: 100%;
@@ -119,7 +123,7 @@ header{
     right: 0px;
     bottom: 0;
     display: grid;
-    grid-template-rows: 70px 1fr 70px;
+    grid-template-rows: 70px 1fr 60px 70px;
 }
 .cartTab h1{
     padding: 20px;
@@ -174,22 +178,33 @@ body.activeTabCart .container{
     background-color: #EEEEE6;
     padding: 20px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 240px;
 }
 .listProduct .item h2{
-    font-weight: 500;
+    height: 42px;
+    font-weight: normal;
     font-size: large;
 }
 .listProduct .item .price{
     letter-spacing: 2px;
-    font-size: small;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 .listProduct .item button{
     background-color: #353432;
     color: #eee;
     border: none;
     padding: 5px 10px;
-    margin-top: 10px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 20px;
+    width: 125px;
+
+    flex-grow: 0;
 }
 
 .listProduct .item img{
@@ -212,6 +227,7 @@ body.activeTabCart .container{
 }
 .listCart .item{
     display: grid;
+    padding-left: 10px;
     grid-template-columns: 70px 150px 50px 1fr;
     gap: 10px;
     text-align: center;
@@ -237,6 +253,34 @@ body.activeTabCart .container{
 .listCart .item:nth-child(even){
     background-color: #eee1;
 }
+
+
+.lane{
+    height: 10px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 auto; /* Выравнивание по центру */
+  width: 90%; /* Ширина полосы */
+}
+
+.buyCart-Info .lane{
+  height: 3px;
+  background-color: rgb(172, 172, 172);
+  border-radius: 5px;
+  margin: 0 auto; /* Выравнивание по центру */
+  width: 100%; /* Ширина полосы */
+}
+
+
+.cartInfo{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+
 /*  */
 
 /* detail page */
@@ -283,7 +327,7 @@ body.activeTabCart .container{
 .detail .price{
     font-weight: bold;
     font-size: x-large;
-    letter-spacing: 7px;
+    letter-spacing: 2px;
     margin-bottom: 20px;
 }
 .detail .buttons{
@@ -351,31 +395,94 @@ body.activeTabCart .container{
     display: flex;
     flex-direction: column;
     background-color: #fefefe;
+    height: 750px;
     max-height: 80%;
     padding: 20px;
     border: 1px solid #888;
     width: 70%;
+    width: 1200px;
+
+
+}
+
+.btn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buy{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 80px; /* Устанавливаем фиксированную высоту */
+    width: 200px; /* Устанавливаем фиксированную ширину */
+    }
+
+.closeModalWindow{
+    background-color: #95a5a6; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    border: none; /* Удаляем рамку */
+    border-radius: 5px; /* Закругляем края */
+    font-size: 24px; /* Размер текста */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    transition: background-color 0.3s ease; /* Добавляем плавный переход при наведении */
+    height: 80px; /* Устанавливаем фиксированную высоту */
+    width: 200px; /* Устанавливаем фиксированную ширину */
 }
 
 
+.buyInfo{
+    font-size: 30px;
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
 
 .buyCart{
+    height: 500px;
     overflow: auto;
 }
 
 
 .buyCart .item img{
     width: 100%;
+    border-radius: 15px;
 }
-.buyCart .item{
+.buyCart .item {
     display: grid;
     grid-template-columns: 20% 20% 1fr 10% 90px;
-    gap: 20px;
-    text-align: center;
+    grid-column-gap: 20px;
     align-items: center;
+    font-size: 1.2rem; /* 1.2 times the default font size */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa; /* light grayish background color */
+    margin: 10px 0;
 }
+
+.buyCart .item:nth-child(2n){
+    background-color: #eee1;
+}
+
+.buyCart .item:hover {
+    background-color: #e9ecef; /* a bit darker grayish background color on hover */
+  }
+
+.buyCart .item:hover >  .quantity .minus, .buyCart .item:hover >  .quantity .plus  {
+    background-color: white; /* a bit darker grayish background color on hover */
+
+  }
+
 .buyCart .quantity span{
     display: inline-block;
+    text-align: center;
     width: 25px;
     height: 25px;
     background-color: #eee;
@@ -391,9 +498,6 @@ body.activeTabCart .container{
 .buyCart .quantity{
     align-items: center;
     display: flex;
-}
-.buyCart .item:nth-child(even){
-    background-color: #eee1;
 }
 
 
