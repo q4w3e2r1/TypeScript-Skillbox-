@@ -1,18 +1,16 @@
 import { Products } from '../server/products1.ts';
 
 const cart = () => {
-    const iconCart = document.querySelector('.icon-cart')!;
-    const closeBtn = document.querySelector('.cartTab .close')!;
     const totalPriceCart:HTMLElement = document.querySelector('.cartTab .cartPrice')!;
     const buyCartPrice = document.querySelector('.buyCart-Info .buyCartPrice')!;
     const body = document.querySelector('body')!;
     let cart:[{product_id:number, quantity:number}];// товары в корзине
 
-    iconCart.addEventListener('click', () => {
+    document.querySelector('.icon-cart')!.addEventListener('click', () => {
         body.classList.toggle('activeTabCart');
     });
 
-    closeBtn.addEventListener('click', () => {
+    document.querySelector('.cartTab .close')!.addEventListener('click', () => {
         body.classList.toggle('activeTabCart');
     });
 
@@ -35,16 +33,16 @@ const cart = () => {
         localStorage.setItem('cart', JSON.stringify(cart));
         
         refreshProductCartHTML(idProduct, quantity, action)
-        //refreshCartHTML();
     }
 
     const refreshProductCartHTML = (id:number, quantity:number, action:number) =>{
         const listHTML = document.querySelector('.listCart')!;
         const buylistHTML = document.querySelector('.buyCart')!;
-        const totalHTML: HTMLElement = document.querySelector('.icon-cart span')!;
+        const totalProductsCount: HTMLElement = document.querySelector('.icon-cart span')!;
 
-        if(quantity == 1 && action == 0){
-            totalHTML.textContent! = `${+totalHTML.textContent! + 1}`
+        if(quantity == 1 && action == 0) //добавление в корзину первого данного продукта
+        {
+            totalProductsCount.textContent = `${+totalProductsCount.textContent! + 1}`
             async function fetchProduct() {
                 const products = new Products();
                 const product = await products.findProductByIdAll(id);
@@ -66,7 +64,7 @@ const cart = () => {
                         <img src= "${product.image}" />
                     </div>
                     <div class="name">${product.name}</div>
-                    <div class="totalPrice">$${product.price}</div>
+                    <div class="totalPrice">${product.price}₽</div>
                     <div class="quantity">
                         <span class="minus" data-id="${product.id}">-</span>
                         <span class="totalquantity">${quantity}</span>
@@ -75,8 +73,8 @@ const cart = () => {
                     `
                     listHTML.appendChild(newItem);
 
-                    const totalPrice = Number(totalPriceCart.textContent!.replace('$', '')) + product.price
-                    totalPriceCart.textContent = `$${totalPrice}`
+                    const totalPrice = Number(totalPriceCart.textContent!.replace('₽', '')) + product.price
+                    totalPriceCart.textContent = `${totalPrice}₽`
 
                     const newBuyItem = document.createElement('div');
                     newBuyItem.classList.add('item');
@@ -89,7 +87,7 @@ const cart = () => {
                     </div>
                     <div class="name">${product.name}</div>
                     <div class="description">${product.description}</div>
-                    <div class="totalPrice">$${product.price}</div>
+                    <div class="totalPrice">${product.price}₽</div>
                     <div class="quantity">
                         <span class="minus" data-id="${product.id}">-</span>
                         <span class="totalquantity">${quantity}</span>
@@ -98,6 +96,7 @@ const cart = () => {
                     `
 
                     buylistHTML.appendChild(newBuyItem)
+                    buyCartPrice.textContent = totalPriceCart.textContent
                 
             })
             
@@ -108,41 +107,45 @@ const cart = () => {
             const item = listHTML.querySelector(`[data-id="${id}"]`)!;
             const buyItem = buylistHTML.querySelector(`[data-id="${id}"]`)!;
             
-            let price = item?.querySelector('.totalPrice')!;
+            const price = item?.querySelector('.totalPrice')!;
             let productPrice:number = 0
             let newPrice:number = 0
             let totalPrice:number = 0
-            if(action == 1){
-                productPrice = Number(price.textContent!.replace('$', '')) / (quantity -1)
+            if(action == 1) // товар +1
+            {
+                productPrice = Number(price.textContent!.replace('₽', '')) / (quantity -1)
                 newPrice = productPrice * quantity
-                totalPrice = Number(totalPriceCart.textContent!.replace('$', '')) + (productPrice)
-                totalHTML.textContent! = `${+totalHTML.textContent! + 1}` 
+                totalPrice = Number(totalPriceCart.textContent!.replace('₽', '')) + (productPrice)
+                totalProductsCount.textContent! = `${+totalProductsCount.textContent! + 1}` 
             }
-            else{    
-                productPrice = Number(price.textContent!.replace('$', '')) / (quantity +1)
+            else //товар -1
+            {    
+                productPrice = Number(price.textContent!.replace('₽', '')) / (quantity +1)
                 newPrice = productPrice * quantity
-                totalPrice = Number(totalPriceCart.textContent!.replace('$', '')) + (productPrice * -1)
-                totalHTML.textContent! = `${+totalHTML.textContent! - 1}` 
+                totalPrice = Number(totalPriceCart.textContent!.replace('₽', '')) + (productPrice * -1)
+                totalProductsCount.textContent! = `${+totalProductsCount.textContent! - 1}` 
             }
             
             const productQuantity = item?.querySelector('.totalquantity')!;
-            totalPriceCart.textContent = `$${totalPrice}` // цена на кнопке
+            totalPriceCart.textContent = `${totalPrice}₽` // цена на кнопке
             productQuantity.textContent = `${quantity}` // кол-во товара на корзине
-            price.textContent = `$${newPrice}` // общая цена за n товара
+            price.textContent = `${newPrice}₽` // общая цена за n товара
             buyItem.querySelector('.totalquantity')!.textContent = `${quantity}`
-            buyItem.querySelector('.totalPrice')!.textContent =  `$${newPrice}`
+            buyItem.querySelector('.totalPrice')!.textContent =  `${newPrice}₽`
+            
         }
-        else if (quantity <= 0){
+        else if (quantity <= 0) //удаление из корзины
+        {
             const item = listHTML.querySelector(`[data-id="${id}"]`)!;
             const buyItem = buylistHTML.querySelector(`[data-id="${id}"]`)!;
 
             let price = item?.querySelector('.totalPrice')!;
             item.remove()
             buyItem.remove()
-            totalHTML.textContent! = `${+totalHTML.textContent! - 1}` // общее кол-во товара
-            const productPrice = Number(price.textContent!.replace('$', '')) / (quantity +1)
-            const totalPrice = Number(totalPriceCart.textContent!.replace('$', '')) + (productPrice * -1)
-            totalPriceCart.textContent = `$${totalPrice}` //общая цена всех товаров
+            totalProductsCount.textContent! = `${+totalProductsCount.textContent! - 1}` // общее кол-во товара
+            const productPrice = Number(price.textContent!.replace('₽', '')) / (quantity +1)
+            const totalPrice = Number(totalPriceCart.textContent!.replace('₽', '')) + (productPrice * -1)
+            totalPriceCart.textContent = `${totalPrice}₽` //общая цена всех товаров
 
         }
         
@@ -151,7 +154,7 @@ const cart = () => {
     }
 
 // добавление товара в корзину
-    const refreshCartHTML = () => {
+    const refreshCartFromLocalStorage = () => {
         const listHTML = document.querySelector('.listCart')!;
         const buylistHTML = document.querySelector('.buyCart')!;
         const totalHTML: HTMLElement = document.querySelector('.icon-cart span')!;
@@ -192,7 +195,7 @@ const cart = () => {
                         <img src= "${product.image}" />
                     </div>
                     <div class="name">${product.name}</div>
-                    <div class="totalPrice">$${product.price * item.quantity}</div>
+                    <div class="totalPrice">${product.price * item.quantity}₽</div>
                     <div class="quantity">
                         <span class="minus" data-id="${product.id}">-</span>
                         <span class="totalquantity">${item.quantity}</span>
@@ -211,7 +214,7 @@ const cart = () => {
                     </div>
                     <div class="name">${product.name}</div>
                     <div class="description">${product.description}</div>
-                    <div class="totalPrice">$${product.price * item.quantity}</div>
+                    <div class="totalPrice">${product.price * item.quantity}₽</div>
                     <div class="quantity">
                         <span class="minus" data-id="${product.id}"> -</span>
                         <span class="totalquantity">${item.quantity}</span>
@@ -221,7 +224,7 @@ const cart = () => {
 
                     buylistHTML.appendChild(newBuyItem)
                     totalHTML.innerText = `${totalQuantity}`;
-                    totalPriceCart.innerText = `$${totalPrice}`;
+                    totalPriceCart.innerText = `${totalPrice}₽`;
                     buyCartPrice.textContent = totalPriceCart.textContent
         
                 })
@@ -239,7 +242,7 @@ const cart = () => {
 
         if (buttonClick.classList.contains('addCart') || buttonClick.classList.contains('plus')) {
             quantity++;
-            setProductInCart(idProduct, quantity, position);
+            setProductInCart(idProduct, quantity++, position);
         }else{
             quantity--;
             setProductInCart(idProduct, quantity, position);
@@ -254,7 +257,7 @@ const cart = () => {
         if(localStorage.getItem('cart')){
             cart = JSON.parse(localStorage.getItem('cart')!);        
         }
-        refreshCartHTML();
+        refreshCartFromLocalStorage();
     }
 
     initApp();
@@ -264,7 +267,7 @@ const cart = () => {
     const modal = document.querySelector(".modal") as HTMLDivElement;
 
     openModalBtn.addEventListener("click", () => {
-        if(totalPriceCart.textContent != '$0')
+        if(totalPriceCart.textContent != '0₽')
             modal.style.display = "flex";
         
         
@@ -276,6 +279,8 @@ const cart = () => {
 
 
     window.addEventListener("click", (event) => {
+        console.log(1);
+        
         if (event.target === modal) {
             modal.style.display = "none";
         }

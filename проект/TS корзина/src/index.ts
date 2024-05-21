@@ -26,13 +26,13 @@ loadTemplate();
 
 const initApp = (category:string) => {
     
-  // load list product
+  // загрузка товаров
     const listProduct = document.querySelector('.listProduct')!;
     listProduct.innerHTML = '';
 
     async function fetchProducts(){
         const products = new Products();
-        const data = await products.filterAll(category);
+        const data = await products.filter(category);
         return data!;
       }
 
@@ -48,7 +48,7 @@ const initApp = (category:string) => {
               <img src="${product.image}" alt="${product.name}"/>
               </a>
               <h2>${product.name}</h2>
-              <div class="price">$${product.price}</div>
+              <div class="price">${product.price}₽</div>
               <button class="addCart"
                   data-id="${product.id}">
                   Add to Cart
@@ -67,16 +67,12 @@ const setCategory = (curCategory:string) => {
     
     const categories = app.querySelector('.categories')!;
     
-    const active = categories.querySelector('.active')
-            
+    const active = categories.querySelector('.active')   
     active?.classList.remove('active');
-
-    
-
-
 
     categories.querySelectorAll('a').forEach((category) => {
         const field = category.dataset.field;
+
         if(field == curCategory){
             category.classList.add('active')
         }

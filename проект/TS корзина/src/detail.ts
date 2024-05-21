@@ -48,13 +48,15 @@ const initApp = () => {
         .querySelector(`[data-field="${product.category}"]`)
         ?.classList.add('active');
 
+      const {image, name, price, description, id, category} = product
+
       const detail = document.querySelector('.detail')!;
-      (detail.querySelector('.image img') as HTMLImageElement).src =product.image;
-      (detail.querySelector('.name') as HTMLElement).innerText = product.name;
-      (detail.querySelector('.price') as HTMLElement).innerText = `$${product.price}`;
-      (detail.querySelector('.description') as HTMLElement).innerText =product.description;
-      (detail.querySelector('.addCart') as HTMLElement)!.dataset.id = product.id;
-      (detail.querySelector('.category-link') as HTMLAnchorElement).href = `/index.html?category=${product.category}`;
+      (detail.querySelector('.image img') as HTMLImageElement).src = image;
+      (detail.querySelector('.name') as HTMLElement).innerText = name;
+      (detail.querySelector('.price') as HTMLElement).innerText = `${price}₽`;
+      (detail.querySelector('.description') as HTMLElement).innerText =description;
+      (detail.querySelector('.addCart') as HTMLElement)!.dataset.id = id;
+      (detail.querySelector('.category-link') as HTMLAnchorElement).href = `/index.html?category=${category}`;
 
       const loader = document.querySelector('.loader-container')!;
       loader.classList.add('remove');
@@ -70,7 +72,7 @@ const initApp = () => {
 
       async function getSimilarProducts() {
         const products = new Products();
-        const data = await products.filterAll(product.category);
+        const data = await products.filter(product.category);
         return data!;
       }
 
@@ -87,7 +89,7 @@ const initApp = () => {
                 <img src="${product.image}" alt="${product.name}"/>
                 </a>
                 <h2>${product.name}</h2>
-                <div class="price">$${product.price}</div>
+                <div class="price">${product.price}₽</div>
                 <button class="addCart"
                     data-id="${product.id}">
                     Add to Cart

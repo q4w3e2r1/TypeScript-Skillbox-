@@ -140,8 +140,11 @@ header{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     cursor: pointer;
+    font-size: larger;
 }
 .cartTab .close{
+    font-size: larger;
+    font-weight: 500;
     background-color: #eee;
 }
 .listCart{
@@ -172,10 +175,15 @@ body.activeTabCart .container{
     gap: 20px;
 }
 
+.basket{
+    display: flex;
+    justify-content: center;
+}
+
 
 
 .listProduct .item{
-    background-color: #EEEEE6;
+    background-color: #f2f2f2;
     padding: 20px;
     border-radius: 20px;
     display: flex;
@@ -224,6 +232,7 @@ body.activeTabCart .container{
 
 .listCart .item img{
     width: 100%;
+    border-radius: 7px;
 }
 .listCart .item{
     display: grid;
@@ -234,9 +243,11 @@ body.activeTabCart .container{
     align-items: center;
 }
 .listCart .quantity span{
-    display: inline-block;
-    width: 25px;
-    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
     background-color: #eee;
     border-radius: 50%;
     color: #555;
@@ -256,11 +267,9 @@ body.activeTabCart .container{
 
 
 .lane{
-    height: 10px;
+ height: 3px;
   background-color: white;
-  border-radius: 5px;
   margin: 0 auto; /* Выравнивание по центру */
-  width: 90%; /* Ширина полосы */
 }
 
 .buyCart-Info .lane{
@@ -454,16 +463,22 @@ body.activeTabCart .container{
     width: 100%;
     border-radius: 15px;
 }
+
+.buyCart .item .name {
+   padding: 20px;
+}
+
+
 .buyCart .item {
     display: grid;
     grid-template-columns: 20% 20% 1fr 10% 90px;
     grid-column-gap: 20px;
     align-items: center;
-    font-size: 1.2rem; /* 1.2 times the default font size */
+    font-size: 1.5rem; 
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #f8f9fa; /* light grayish background color */
+    background-color: #f8f9fa;
     margin: 10px 0;
 }
 
@@ -472,19 +487,19 @@ body.activeTabCart .container{
 }
 
 .buyCart .item:hover {
-    background-color: #e9ecef; /* a bit darker grayish background color on hover */
+    background-color: #e9ecef;
   }
 
 .buyCart .item:hover >  .quantity .minus, .buyCart .item:hover >  .quantity .plus  {
-    background-color: white; /* a bit darker grayish background color on hover */
+    background-color: white;
 
   }
 
 .buyCart .quantity span{
     display: inline-block;
     text-align: center;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background-color: #eee;
     border-radius: 50%;
     color: #555;
