@@ -3,6 +3,7 @@ import { Products } from '../server/products1.ts';
 
 const app = document.getElementById('app')!;
 const temporaryContent = document.getElementById('temporaryContent')!;
+export let activeCategory:string = 'all'
 
 const loadTemplate = () => {
   fetch('/template.html')
@@ -27,8 +28,8 @@ const initApp = () => {
   );
 
   async function fetchProduct() {
-    const products1 = new Products();
-    const product = await products1.findProductByIdAll(idProduct);
+    const products = new Products();
+    const product = await products.findProductByIdAll(idProduct);
     return product;
   }
 
@@ -56,7 +57,11 @@ const initApp = () => {
       (detail.querySelector('.price') as HTMLElement).innerText = `${price}₽`;
       (detail.querySelector('.description') as HTMLElement).innerText =description;
       (detail.querySelector('.addCart') as HTMLElement)!.dataset.id = id;
+
+      
       (detail.querySelector('.category-link') as HTMLAnchorElement).href = `/index.html?category=${category}`;
+      //(detail.querySelector('.category-link') as HTMLAnchorElement).href = `/`;
+      //activeCategory = category
 
       const loader = document.querySelector('.loader-container')!;
       loader.classList.add('remove');

@@ -31,7 +31,7 @@ svg{
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
-    animation: rotation 0.1s linear infinite;
+    animation: rotation 1.2s linear infinite;
 
     }
 
@@ -153,6 +153,7 @@ header{
 .listCart::-webkit-scrollbar{
     width: 0;
 }
+
 /*  */
 .cartTab{
     right: -400px;
@@ -164,6 +165,7 @@ body.activeTabCart .cartTab{
 body.activeTabCart .container{
     transform: translateX(-250px);
 }
+
 /*  */
 
 .listProduct .item img{
@@ -233,6 +235,7 @@ body.activeTabCart .container{
 .listCart .item img{
     width: 100%;
     border-radius: 7px;
+    height: 46px;
 }
 .listCart .item{
     display: grid;
@@ -404,8 +407,8 @@ body.activeTabCart .container{
     display: flex;
     flex-direction: column;
     background-color: #fefefe;
-    height: 750px;
-    max-height: 80%;
+    height: 850px;
+    max-height: 90%;
     padding: 20px;
     border: 1px solid #888;
     width: 70%;
@@ -454,7 +457,7 @@ body.activeTabCart .container{
 }
 
 .buyCart{
-    height: 500px;
+    height: 600px;
     overflow: auto;
 }
 
@@ -462,12 +465,22 @@ body.activeTabCart .container{
 .buyCart .item img{
     width: 100%;
     border-radius: 15px;
+    height: 150px;
 }
 
 .buyCart .item .name {
-   padding: 20px;
+    padding: 20px;
+   justify-content: center;
+   font-size: xx-large;
+   font-weight: 700;
 }
 
+
+
+.buyCart .totalPrice{
+    font-weight: 700;
+    font-size: xx-large;
+}
 
 .buyCart .item {
     display: grid;

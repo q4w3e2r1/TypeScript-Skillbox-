@@ -51,6 +51,7 @@ const cart = () => {
               }
             
             fetchProduct().then((product)=>{
+                
                 if(product == null){
                     throw new Error('Product not found');
                 }
@@ -279,7 +280,6 @@ const cart = () => {
 
 
     window.addEventListener("click", (event) => {
-        console.log(1);
         
         if (event.target === modal) {
             modal.style.display = "none";
