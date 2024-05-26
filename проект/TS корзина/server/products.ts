@@ -5,7 +5,7 @@ export class Products {
 
   // 1 вариант запрос деалется 1 раз, далее работа как с массивом 
   async get(): Promise<{ id: string, name: string, image: string, price: number, description:string, category:string  }[]> {
-    let url = 'http://localhost:3001/products';
+    const url = 'http://localhost:3001/products';
     try {
       const response = await fetch(url);
       if (!response.ok) {

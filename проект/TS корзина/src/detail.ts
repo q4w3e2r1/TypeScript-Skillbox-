@@ -1,16 +1,15 @@
 import cart from './cart.ts';
-import { Products } from '../server/products1.ts';
+import { Products } from '../server/products.ts';
 
-const app = document.getElementById('app')!;
-const temporaryContent = document.getElementById('temporaryContent')!;
-export let activeCategory:string = 'all'
+const app = document.querySelector('.app')!;
+const temporaryContent = document.querySelector('.temporaryContent')!;
 
 const loadTemplate = () => {
   fetch('/template.html')
     .then((response) => response.text())
     .then((html) => {
       app.innerHTML = html;
-      const contentTab = document.getElementById('contentTab')!;
+      const contentTab = document.querySelector('.contentTab')!;
       contentTab.innerHTML = temporaryContent.innerHTML;
       temporaryContent.innerHTML = '';
 
@@ -49,27 +48,30 @@ const initApp = () => {
         .querySelector(`[data-field="${product.category}"]`)
         ?.classList.add('active');
 
-      const {image, name, price, description, id, category} = product
+      const { image, name, price, description, id, category } = product;
 
-      const detail = document.querySelector('.detail')!;
+      const detail: HTMLElement = document.querySelector('.detail')!;
+
+      // const images:HTMLImageElement  = detail.querySelector('.image img')!;
+      // images.src = image
       (detail.querySelector('.image img') as HTMLImageElement).src = image;
+
       (detail.querySelector('.name') as HTMLElement).innerText = name;
       (detail.querySelector('.price') as HTMLElement).innerText = `${price}₽`;
-      (detail.querySelector('.description') as HTMLElement).innerText =description;
+      (detail.querySelector('.description') as HTMLElement).innerText =
+        description;
       (detail.querySelector('.addCart') as HTMLElement)!.dataset.id = id;
 
-      
-      (detail.querySelector('.category-link') as HTMLAnchorElement).href = `/index.html?category=${category}`;
-      //(detail.querySelector('.category-link') as HTMLAnchorElement).href = `/`;
-      //activeCategory = category
+      (
+        detail.querySelector('.category-link') as HTMLAnchorElement
+      ).href = `/index.html?category=${category}`;
 
       const loader = document.querySelector('.loader-container')!;
       loader.classList.add('remove');
-      
+
       return product;
     })
     .then((product) => {
-      //console.log(product);
       //similar products
 
       const listProduct: HTMLElement = document.querySelector('.listProduct')!;
@@ -85,7 +87,7 @@ const initApp = () => {
         products
           .filter((value) => value.id != product.id)
           .forEach((product) => {
-            let newProduct = document.createElement('div');
+            const newProduct = document.createElement('div');
             newProduct.classList.add('item');
 
             // карточка товара
@@ -103,6 +105,5 @@ const initApp = () => {
             listProduct.appendChild(newProduct);
           });
       });
-
     });
 };

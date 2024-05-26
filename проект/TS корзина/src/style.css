@@ -198,10 +198,10 @@ body.activeTabCart .container{
     font-size: large;
 }
 .listProduct .item .price{
-    letter-spacing: 2px;
+    color: #333333;
+    letter-spacing: 1px;
     font-size: 25px;
     font-weight: 700;
-    margin-bottom: 15px;
 }
 .listProduct .item button{
     background-color: #353432;
