@@ -1,42 +1,45 @@
-import cart from './cart.ts';
-import { Products } from '../server/products.ts';
+import cart from './cart';
+import { Products } from '../server/products';
 
 const app = document.querySelector('.app')!;
 const temporaryContent = document.querySelector('.temporaryContent')!;
 
-const loadTemplate = () => {
-  fetch('/template.html')
-    .then((response) => response.text())
-    .then((html) => {
-      app.innerHTML = html;
-      const contentTab = document.querySelector('.contentTab')!; 
-      contentTab.innerHTML = temporaryContent.innerHTML;
-      temporaryContent.innerHTML = '';
-      cart();
+const loadTemplate = async () => {
+  try {
+    const response = await fetch('/template.html');
+    const html = await response.text();
 
-      const category =
-        new URLSearchParams(window.location.search).get('category')! || 'all';
+    app.innerHTML = html;
+    const contentTab = document.querySelector('.contentTab')!;
+    contentTab.innerHTML = temporaryContent.innerHTML;
+    temporaryContent.innerHTML = '';
+    cart();
 
-      initApp(category);
-      setCategory(category);
-    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category') || 'all';
+
+    initApp(category);
+    setCategory(category);
+  } catch (error) {
+    console.error('Ошибка при загрузке шаблона:', error);
+  }
 };
 
-loadTemplate(); 
+loadTemplate();
 
-const initApp = (category: string) => {
+const initApp = async (category: string) => {
   // загрузка товаров
-  const listProduct = document.querySelector('.listProduct')!;
+  const listProduct: HTMLElement = document.querySelector('.listProduct')!;
   listProduct.innerHTML = '';
 
-  async function fetchProducts() {
+  try {
     const products = new Products();
     const data = await products.filter(category);
-    return data!;
-  }
 
-  fetchProducts().then((data) => {
-    //console.log(data);
+    if (!data) {
+      throw new Error('Нет данных о товаре');
+    }
+
     data.forEach((product) => {
       const newProduct = document.createElement('div');
       newProduct.classList.add('item');
@@ -58,34 +61,33 @@ const initApp = (category: string) => {
 
     const loader = document.querySelector('.loader-container')!;
     loader.classList.add('remove');
-  });
+  } catch (error) {
+    console.error('Ошибка при загрузке товаров:', error);
+  }
 };
+
 
 const setCategory = (curCategory: string) => {
   const categories = app.querySelector('.categories')!;
-  // const active = categories.querySelector('.active');
-  // active?.classList.remove('active');
 
   categories.querySelectorAll('a').forEach((category) => {
     const field = category.dataset.field;
 
-    if (field == curCategory) {
+    if (field === curCategory) {
       category.classList.add('active');
+    } else {
+      category.classList.remove('active');
     }
 
     category.addEventListener('click', (e) => {
       e.preventDefault();
 
-      window.history.replaceState(
-        null,
-        '',
-        `/index.html?category=${category.dataset.field}`
-      );
-      const active = categories.querySelector('.active');
-      active?.classList.remove('active');
+      const active = categories.querySelector('.active')!;
+      active.classList.remove('active');
       category.classList.add('active');
 
       if (field) {
+        window.history.replaceState(null, '', `/index.html?category=${field}`);
         initApp(field);
       }
     });

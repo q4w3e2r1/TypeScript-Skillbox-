@@ -226,7 +226,9 @@ body.activeTabCart .container{
 
 
 
-
+.noSelection{
+    user-select: none;
+}
 
 
 

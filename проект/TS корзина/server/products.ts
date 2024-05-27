@@ -1,10 +1,10 @@
 
 export class Products {
-  #product: { id: string, name: string, image: string, price: number, description:string, category:string  }[] | null = null;
+  #product: { id: number, name: string, image: string, price: number, description:string, category:string  }[] | null = null;
 
 
   // 1 вариант запрос деалется 1 раз, далее работа как с массивом 
-  async get(): Promise<{ id: string, name: string, image: string, price: number, description:string, category:string  }[]> {
+  async get(): Promise<{ id: number, name: string, image: string, price: number, description:string, category:string  }[]> {
     const url = 'http://localhost:3001/products';
     try {
       const response = await fetch(url);
@@ -21,7 +21,7 @@ export class Products {
     }
   }
 
-  async filter(category: string): Promise<{ id: string, name: string, image: string, price: number, description:string, category:string  }[] | null> {
+  async filter(category: string): Promise<{ id: number, name: string, image: string, price: number, description:string, category:string  }[] | null> {
     if(this.#product == null){
       
       await this.get()
@@ -32,17 +32,17 @@ export class Products {
   }
 
 
-  async findProductByIdAll(id: number): Promise<{ id: string, name: string, image: string, price: number, description:string, category:string  } | null> {
+  async findProductByIdAll(id: number): Promise<{ id: number, name: string, image: string, price: number, description:string, category:string  } | null> {
     if(this.#product == null){
       await this.get()
     }
-    return this.#product?.filter((value)=> value.id == String(id))[0]!
+    return this.#product?.filter((value)=> value.id == (id))[0]!
   }
 
 
 
    // 2 вариант с запросом на каждый вызов и использованием встроенных в запрос фильтрации, нахождении по id элемента
-   async get2(category = '', id =-1): Promise<{ id: string, name: string, image: string, price: number, description:string, category:string  }[]> {
+   async get2(category = '', id =-1): Promise<{ id: number, name: string, image: string, price: number, description:string, category:string  }[]> {
     let url = 'http://localhost:3001/products';
     if (category) {
       url += `?category=${encodeURIComponent(category)}`;
@@ -65,7 +65,7 @@ export class Products {
     }
   }
 
-  async filter2(category: string): Promise<{ id: string, name: string, image: string, price: number, description:string, category:string  }[] | null> {
+  async filter2(category: string): Promise<{ id: number, name: string, image: string, price: number, description:string, category:string  }[] | null> {
     if (category === 'all') {
       return this.get2();
     } else {
@@ -73,7 +73,7 @@ export class Products {
     }
   }
 
-  async findProductById2(id: number): Promise<{ id: string, name: string, image: string, price: number, description:string, category:string  } | null> {
+  async findProductById2(id: number): Promise<{ id: number, name: string, image: string, price: number, description:string, category:string  } | null> {
     const product = await this.get2('', id)
     return product[0]
   }

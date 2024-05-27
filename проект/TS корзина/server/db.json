@@ -19,7 +19,7 @@
     {
       "id": 4,
       "name": "Бифштекс с гарниром",
-      "price": 250,
+      "price": 359,
       "image": "https://klike.net/uploads/posts/2023-03/1677730898_3-201.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni debitis corporis velit facere perspiciatis nisi corrupti aut totam ratione.",
       "category": "meat"
@@ -27,7 +27,7 @@
     {
       "id": 6,
       "name": "Шашлык курица",
-      "price": 250,
+      "price": 599,
       "image": "https://s1.1zoom.ru/b5649/372/Meat_products_Shashlik_French_fries_White_521249_3840x2160.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique harum deleniti rem, totam excepturi unde.",
       "category": "chicken"
@@ -35,7 +35,7 @@
     {
       "id": 7,
       "name": "Шашлык говядина",
-      "price": 250,
+      "price": 359,
       "image": "https://w.forfun.com/fetch/03/03bbb87828ea83e7d26afc965bd58294.jpeg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore adipisci culpa ipsa pariatur quibusdam expedita ipsam, deserunt, perferendis aperiam fuga laborum enim.",
       "category": "meat"
@@ -43,7 +43,7 @@
     {
       "id": 8,
       "name": "Запяченая курица",
-      "price": 250,
+      "price": 359,
       "image": "https://kulinaria1914.ru/800/600/https/wikicity.kz/fotos/Company_215_6XpXxlYyZNuBdsrGuX2bF3KY.jpeg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum?",
       "category": "chicken"
@@ -51,7 +51,7 @@
     {
       "id": 20,
       "name": "Сальса",
-      "price": 250,
+      "price": 599,
       "image": "https://wp-s.ru/wallpapers/1/16/556372510444742/kurinye-krylya-s-ovoshhami-i-sousom.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni debitis corporis velit facere perspiciatis nisi corrupti aut totam ratione.",
       "category": "chicken"
@@ -59,7 +59,7 @@
     {
       "id": 21,
       "name": "Куриный шашлык",
-      "price": 250,
+      "price": 599,
       "image": "https://wp-s.ru/wallpapers/1/19/516375467550154/shashlyk-s-salatom-na-belom-fone.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique harum deleniti rem, totam excepturi unde.",
       "category": "chicken"
@@ -67,7 +67,7 @@
     {
       "id": 22,
       "name": "Куриный шашлык",
-      "price": 250,
+      "price": 599,
       "image": "https://bogatyr.club/uploads/posts/2023-06/1687859050_bogatyr-club-p-kuritsa-na-tarelke-foni-pinterest-56.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum?",
       "category": "chicken"
@@ -75,7 +75,7 @@
     {
       "id": 23,
       "name": "Куриный ножки",
-      "price": 250,
+      "price": 599,
       "image": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663641098_17-mykaleidoscope-ru-p-golen-kurinaya-yeda-krasivo-19.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe tenetur quod reprehenderit. Tempora quisquam possimus dignissimos architecto voluptatem. Alias perspiciatis deleniti rem tempora dolores praesentium!",
       "category": "chicken"
@@ -83,7 +83,7 @@
     {
       "id": 9,
       "name": "Рыбные ломтики с овощами",
-      "price": 250,
+      "price":359,
       "image": "http://s1.1zoom.ru/big3/224/Fish_Food_Lemons_Vegetables_White_background_Plate_577924_4200x2800.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni debitis corporis velit facere perspiciatis nisi corrupti aut totam ratione.",
       "category": "fish"
@@ -91,7 +91,7 @@
     {
       "id": 10,
       "name": "Лосось",
-      "price": 250,
+      "price": 499,
       "image": "https://on-desktop.com/wps/2018Food_Potatoes_with_meat_and_slices_of_orange_on_a_plate_126909_.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique harum deleniti rem, totam excepturi unde.",
       "category": "fish"
@@ -99,7 +99,7 @@
     {
       "id": 11,
       "name": "Стейк из лосося",
-      "price": 250,
+      "price": 599,
       "image": "https://i.artfile.ru/3008x1996_1047596_[www.ArtFile.ru].jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore adipisci culpa ipsa pariatur quibusdam expedita ipsam, deserunt, perferendis aperiam fuga laborum enim.",
       "category": "fish"
@@ -107,7 +107,7 @@
     {
       "id": 12,
       "name": "Махито",
-      "price": 250,
+      "price": 599,
       "image": "https://catering-mix.ru/wp-content/uploads/2018/07/Mohito-b-a.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus, hic.",
       "category": "drink"
@@ -115,7 +115,7 @@
     {
       "id": 13,
       "name": "Фруктовый напиток",
-      "price": 250,
+      "price": 499,
       "image": "https://i.artfile.ru/5000x4230_719053_[www.ArtFile.ru].jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni debitis corporis velit facere perspiciatis nisi corrupti aut totam ratione.",
       "category": "drink"
@@ -123,7 +123,7 @@
     {
       "id": 14,
       "name": "Фруктовый напиток",
-      "price": 250,
+      "price": 299,
       "image": "https://podacha-blud.com/uploads/posts/2022-10/1665869917_13-podacha-blud-com-p-napitki-na-belom-fone-krasivie-foto-14.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique harum deleniti rem, totam excepturi unde.",
       "category": "drink"
@@ -131,7 +131,7 @@
     {
       "id": 15,
       "name": "Чай со льдом",
-      "price": 250,
+      "price": 359,
       "image": "https://podacha-blud.com/uploads/posts/2022-10/1665869906_2-podacha-blud-com-p-napitki-na-belom-fone-krasivie-foto-2.png",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum?",
       "category": "drink"
@@ -139,7 +139,7 @@
     {
       "id": 16,
       "name": "Глинтвейн",
-      "price": 250,
+      "price": 299,
       "image": "https://wp-s.ru/wallpapers/1/9/517406743472997/foto-glintvejn-s-koricej-na-belom-fone.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni debitis corporis velit facere perspiciatis nisi corrupti aut totam ratione.",
       "category": "drink"
@@ -147,7 +147,7 @@
     {
       "id": 17,
       "name": "Кислый папайя",
-      "price": 250,
+      "price": 599,
       "image": "https://cdn.forknplate.com/wp-content/uploads/2014/06/southside.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum?",
       "category": "drink"
@@ -155,7 +155,7 @@
     {
       "id": 18,
       "name": "Чай со льдом",
-      "price": 250,
+      "price": 499,
       "image": "https://i.artfile.ru/2892x2264_728477_[www.ArtFile.ru].jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique harum deleniti rem, totam excepturi unde.",
       "category": "drink"
@@ -163,7 +163,7 @@
     {
       "id": 19,
       "name": "Молочные коктели",
-      "price": 250,
+      "price": 599,
       "image": "https://s1.1zoom.ru/big3/404/419143-svetik.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus, hic.",
       "category": "drink"
@@ -171,7 +171,7 @@
     {
       "id": 24,
       "name": "Утиная ножка конфи",
-      "price": 250,
+      "price": 359,
       "image": "https://podacha-blud.com/uploads/posts/2022-10/1666258491_35-podacha-blud-com-p-sposob-servirovki-i-varianti-oformleniya-k-37.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe tenetur quod reprehenderit. Tempora quisquam possimus dignissimos architecto voluptatem. Alias perspiciatis deleniti rem tempora dolores praesentium!",
       "category": "chicken"
@@ -179,7 +179,7 @@
     {
       "id": 25,
       "name": "Филе индейки гриль",
-      "price": 250,
+      "price": 299,
       "image": "https://mykaleidoscope.ru/x/uploads/posts/2023-12/1703285926_mykaleidoscope-ru-p-steik-iz-kuritsi-na-skovorode-krasivo-5.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum?",
       "category": "chicken"
@@ -187,7 +187,7 @@
     {
       "id": 26,
       "name": "Курина грудка бризоль",
-      "price": 250,
+      "price": 499,
       "image": "https://shop.sudzhuk.ru/image/cache/catalog/goods/img1590396367-1200x800.jpg",
       "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore adipisci culpa ipsa pariatur quibusdam expedita ipsam, deserunt, perferendis aperiam fuga laborum enim.",
       "category": "chicken"
@@ -195,7 +195,7 @@
     {
       "id": 27,
       "name": "Фрикасе из куриного филе",
-      "price": 250,
+      "price": 599,
       "image": "https://rycckienovosti.ru/wp-content/uploads/2020/08/111795497500000img_7169-1024x675.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique harum deleniti rem, totam excepturi unde.",
       "category": "chicken"
@@ -203,7 +203,7 @@
     {
       "id": 28,
       "name": "Куриные сердечки",
-      "price": 250,
+      "price": 299,
       "image": "https://optriba.ru/wp-content/uploads/2016/12/%D1%81%D0%B5%D1%80%D0%B4%D1%86%D0%B5-%D0%BA%D1%83%D1%80%D0%B8%D0%BD%D1%8B%D0%B5-%D0%B3%D0%BA.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus, hic.",
       "category": "chicken"
@@ -211,7 +211,7 @@
     {
       "id": 29,
       "name": "Мясо по французки",
-      "price": 250,
+      "price": 599,
       "image": "https://attuale.ru/wp-content/uploads/2019/01/myaso.jpg",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe tenetur quod reprehenderit. Tempora quisquam possimus dignissimos architecto voluptatem. Alias perspiciatis deleniti rem tempora dolores praesentium!",
       "category": "meat"
@@ -219,7 +219,7 @@
     {
       "id": 30,
       "name": "Стейк Рибай",
-      "price": 250,
+      "price": 499,
       "image": "https://kartinki.pics/uploads/posts/2021-07/1627642987_27-kartinkin-com-p-steik-iz-svinoi-virezki-yeda-krasivo-foto-27.jpg",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum?",
       "category": "meat"
@@ -227,7 +227,7 @@
     {
         "id": 31,
         "name": "Баранина (корейка)",
-        "price": 250,
+        "price": 299,
         "image": "https://gagaru.club/uploads/posts/2023-06/1685843230_gagaru-club-p-prazdnichnii-stol-s-shashlikom-fon-56.jpg",
         "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus, hic.",
         "category": "meat"
@@ -235,7 +235,7 @@
     {
         "id": 32,
         "name": "Тефтели",
-        "price": 250,
+        "price": 599,
         "image": "https://s1.1zoom.ru/b5050/479/432310-svetik_3840x2400.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore adipisci culpa ipsa pariatur quibusdam expedita ipsam, deserunt, perferendis aperiam fuga laborum enim.",
         "category": "meat"
@@ -243,7 +243,7 @@
     {
         "id": 33,
         "name": "Чашушили грузински",
-        "price": 250,
+        "price": 499,
         "image": "https://sun9-38.userapi.com/s/v1/ig2/Z7hKvylPTSlHrHotaptDhaarx1dD3G-tWhVOsAoJzshEvMnZlHy-hsuJXjC5a_lA3wxegjZdrHKbMiFickyxtKOx.jpg?size=1620x1080&quality=95&type=album",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique harum deleniti rem, totam excepturi unde.",
         "category": "meat"
@@ -251,7 +251,7 @@
     {
         "id": 34,
         "name": "Аджаб Сандал",
-        "price": 250,
+        "price": 359,
         "image": "https://s1.eda.ru/StaticContent/Photos/120214124812/180817224812/p_O.jpg",
         "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe tenetur quod reprehenderit. Tempora quisquam possimus dignissimos architecto voluptatem. Alias perspiciatis deleniti rem tempora dolores praesentium!",
         "category": "meat"
@@ -259,7 +259,7 @@
     {
         "id": 35,
         "name": "Рёбрышки свиные",
-        "price": 250,
+        "price": 299,
         "image": "https://mirestoran.ru/wp-content/uploads/2021/11/Rebra-4.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, nostrum?",
         "category": "meat"
@@ -267,7 +267,7 @@
     {
         "id": 36,
         "name": "Дорадо на гриле",
-        "price": 250,
+        "price": 599,
         "image": "https://yesofcorsa.com/wp-content/uploads/2020/02/Dorado-On-The-Grill-Image.jpg",
         "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe tenetur quod reprehenderit. Tempora quisquam possimus dignissimos architecto voluptatem. Alias perspiciatis deleniti rem tempora dolores praesentium!",
         "category": "fish"
@@ -275,7 +275,7 @@
     {
         "id": 36,
         "name": "Семга малосольная нарезка",
-        "price": 250,
+        "price": 599,
         "image": "https://img.youscreen.ru/wall/14977372012520/14977372012520_1920x1200.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore adipisci culpa ipsa pariatur quibusdam expedita ipsam, deserunt, perferendis aperiam fuga laborum enim.",
         "category": "fish"
@@ -283,7 +283,7 @@
     {
         "id": 37,
         "name": "Филе трески",
-        "price": 250,
+        "price": 299,
         "image": "https://kartinki.pics/uploads/posts/2021-07/1626451217_7-kartinkin-com-p-riba-s-belim-myasom-yeda-krasivo-foto-11.jpg",
         "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe tenetur quod reprehenderit. Tempora quisquam possimus dignissimos architecto voluptatem. Alias perspiciatis deleniti rem tempora dolores praesentium!",
         "category": "fish"
@@ -291,7 +291,7 @@
     {
         "id": 38,
         "name": "Форель с брокколи",
-        "price": 250,
+        "price": 359,
         "image": "https://www.fonstola.ru/images/201707/fonstola.ru_265402.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique harum deleniti rem, totam excepturi unde.",
         "category": "fish"
